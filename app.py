@@ -26,6 +26,7 @@ if selected == "Home":
         st.write('When a customer stops doing business with the company the customer is churned.The buisness are keen in keeping the existing customer because it is far less resource consuming than aquiring a new customer. Existing customers will often have a higher volume of service consumption and can generate additional customer referrals. Customer churn can be resovled by giving a good product and services.Preventing customer churn is critically important in telecommunication sector in retail as barriers to entry switching services and provider are so low. Acquire different datasets from kaggle, IBM sample datasets, Google dataset sample etc.. ')
         st.image("https://cdn.technologyadvice.com/wp-content/uploads/2020/03/6-Ways-CRM-Stop-Customer-Churn.png")
         st.subheader('This is a sample Dataset:')
+        st.text('In the column ContractRenewal and DataPlan 1 = Yes and 0 = No')
         df = pd.read_csv("telecom_churn.csv")
         st.write(df)
 
@@ -62,8 +63,14 @@ if selected == "Model":
     def main():
        
      AccountWeeks = st.text_input('Account Weeks')
-     ContractRenewal = st.text_input('Contract Renewal')
-     DataPlan = st.text_input('Data Plan')
+     ContractRenewal_1 = st.selectbox(
+        'ContractRenewal', ('Yes', 'No'))
+     DataPlan_1 = st.selectbox(
+        'DataPlan', ('Yes', 'No'))
+
+     #ContractRenewal = st.text_input('Contract Renewal')
+     #DataPlan = st.text_input('Data Plan')
+
      DataUsage = st.text_input('Data Usage')
      CustServCalls = st.text_input('Customer Service Call')
      DayMins = st.text_input('Day Mins')
@@ -71,6 +78,16 @@ if selected == "Model":
      MonthlyCharge = st.text_input('Monthly Charge')
      OverageFee = st.text_input('Overage Fee')
      RoamMins = st.text_input('Roam Mins')
+
+     if ContractRenewal_1 == 'Yes':
+        ContractRenewal = 1
+     else:
+        ContractRenewal = 0
+
+     if DataPlan_1 == 'Yes':
+        DataPlan = 1
+     else:
+        DataPlan = 0 
   
      cc = ''
 
